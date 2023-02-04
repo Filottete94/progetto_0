@@ -10,7 +10,7 @@ namespace progetto_0.Controllers
     {
         public IActionResult Index()
         {
-            return Content("Sono la home");
+            return View();
         }
     }
 }

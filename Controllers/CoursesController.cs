@@ -1,37 +1,23 @@
-//using System;
-//using System.Collections.Generic;
-//using System.Diagnostics;
-//using System.Linq;
-//using System.Threading.Tasks;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-//using Microsoft.Extensions.Logging;
+using progetto_0.Models.Services.Application;
+using progetto_0.Models.ViewModels;
 
 namespace progetto_0.Controllers
 {
-    //[Route("[controller]")]
     public class CoursesController : Controller
     {
-        //private readonly ILogger<CoursesController> _logger;
-
-        //public CoursesController(ILogger<CoursesController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
         public IActionResult Index()
         {
-            return View();
+            CourseService service = new CourseService();
+            // var service = new CourseService(); -> è uguale a quello sopra
+            List<CourseViewModel> courses = CourseService.GetServices();
+            return View(courses );
         }
 
         public IActionResult Detail(string id)
         {
             return View();
         }
-
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View("Error!");
-        //}
     }
 }
